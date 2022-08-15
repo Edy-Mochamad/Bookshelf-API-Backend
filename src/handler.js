@@ -102,11 +102,11 @@ const getAllBooksHandler = (request, h) => {
             status : 'success',
             data : {
                 books : books
-                .filter((a) => a.name === lowName)
-                .map((books) => ({
-                    id : books.id,
-                    name : books.name,
-                    publisher : books.publisher,
+                .filter((contains) => contains.name === lowName) // salahnya disini bagian 'a',  https://www.w3schools.com/jsref/jsref_includes.asp
+                .map((contains) => ({
+                    id : contains.id,
+                    name : contains.name,
+                    publisher : contains.publisher,
                 })),
         },
     });
@@ -293,7 +293,7 @@ const deletedBookByIdHandler = (request, h) => {
 
     const index = books.findIndex((i) => i.id === bookId);
 
-    if (index !== undefined) {
+    if (index !== -1) {
         books.splice(index, 1);
         const response = h.response({
             status : 'success',
