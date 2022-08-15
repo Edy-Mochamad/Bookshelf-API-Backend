@@ -95,9 +95,12 @@ const getAllBooksHandler = (request, h) => {
 // };
 
     const { name, reading, finished } = request.query;
+    const includeName = books;
 
     if (name) {
         const lowName = name.toLowerCase();
+        const bookNameOptional = (book) => book.name.toLowerCase().includes(name.toLowerCase());
+        includeName = bookNameOptional.filter(bookNameOptional);
         const response = h.response({
             status : 'success',
             data : {
