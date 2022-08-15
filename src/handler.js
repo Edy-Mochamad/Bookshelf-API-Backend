@@ -103,10 +103,10 @@ const getAllBooksHandler = (request, h) => {
             data : {
                 books : books
                 .filter((contains) => contains.name === lowName) // salahnya disini bagian 'a',  https://www.w3schools.com/jsref/jsref_includes.asp
-                .map((contains) => ({
-                    id : contains.id,
-                    name : contains.name,
-                    publisher : contains.publisher,
+                .map((books) => ({
+                    id : books.id,
+                    name : books.name,
+                    publisher : books.publisher,
                 })),
         },
     });
@@ -293,7 +293,7 @@ const deletedBookByIdHandler = (request, h) => {
 
     const index = books.findIndex((i) => i.id === bookId);
 
-    if (index !== -1) {
+    if (index !== -1) { // kesalahan sebelumnya pada -1, menggunakan undefined
         books.splice(index, 1);
         const response = h.response({
             status : 'success',
