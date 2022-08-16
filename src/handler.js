@@ -99,8 +99,8 @@ const getAllBooksHandler = (request, h) => {
 
     if (name) {
         const lowName = name.toLowerCase();
-        const bookNameOptional = (book) => book.name.toLowerCase().includes(name.toLowerCase());
-        includeName = bookNameOptional.filter(bookNameOptional);
+        // const bookNameOptional = (book) => book.name.toLowerCase().includes(name.toLowerCase()); // masih salah
+        // includeName = bookNameOptional.filter(bookNameOptional); // masih salah
         const response = h.response({
             status : 'success',
             data : {
