@@ -95,7 +95,7 @@ const getAllBooksHandler = (request, h) => {
 // };
 
     const { name, reading, finished } = request.query;
-    const includeName = books;
+    // const includeName = books;
 
     if (name) {
         const lowName = name.toLowerCase();
