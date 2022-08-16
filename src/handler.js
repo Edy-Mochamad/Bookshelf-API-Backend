@@ -24,7 +24,7 @@ const addBookHandler = (request, h) => {
 // -----------------------------BATAS BAWAH.
 
 // -----------------------------BATAS ATAS.
-    if (!name || name === '' || name === null) {
+    if (!name || name === '' || name === null || name === undefined) { // !name (not enough)
         const response = h.response({
             status : 'fail',
             message : 'Gagal menambahkan buku. Mohon isi nama buku',
@@ -241,7 +241,7 @@ const editBookByIdHandler = (request, h) => {
 
         const updatedAt = new Date().toISOString();
 
-    if (!name || name === '' || name === null) {
+    if (!name || name === '' || name === null || name === undefined) { // !name (not enough)
         const response = h.response({
             status : 'fail',
             message : 'Gagal memperbarui buku. Mohon isi nama buku',
